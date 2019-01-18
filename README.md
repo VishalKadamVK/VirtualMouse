@@ -1,1 +1,2 @@
 # VirtualMouse
+pynput, wxPython
