@@ -59,12 +59,14 @@ while True:
             pass
         mLocOld = mouseLoc
         openx, openy, openw, openh = cv2.boundingRect(np.array([[[x1, y1], [x1+w1, y1+h1], [x2,y2], [x2+w2, y2+h2]]]))
+        # cv2.rectangle(img,(openx,openy), (openx+openw, openy+openh), (255, 0, 0), 2)
     elif (len(conts)==1):
         x, y, w, h = cv2.boundingRect(conts[0])
         if (pinchFlag==0):
             if abs((w*h-openw*openh)*100/(w*h)) < 30:
                 pinchFlag = 1
-                mouse.press(Button.left)
+                # mouse.press(Button.left)
+                mouse.click(Button.left, 2)
                 openx, openy, openw, openh = (0, 0, 0, 0)
         else:
             x, y, w, h = cv2.boundingRect(conts[0])
